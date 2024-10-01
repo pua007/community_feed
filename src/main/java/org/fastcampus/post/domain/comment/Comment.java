@@ -3,7 +3,9 @@ package org.fastcampus.post.domain.comment;
 import com.sun.source.tree.IfTree;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.fastcampus.post.domain.Post;
+import org.fastcampus.post.domain.content.CommentContent;
 import org.fastcampus.post.domain.content.Content;
+import org.fastcampus.post.domain.content.PostContent;
 import org.fastcampus.user.domain.User;
 
 public class Comment {
@@ -13,6 +15,11 @@ public class Comment {
     private final User author;
     private final Content content;
     private final PositiveIntegerCounter likeCount;
+
+    public static Comment createComment(Post post, User author, String content){
+        return new Comment(null, post, author, new CommentContent(content));
+
+    }
 
     public Comment(Long id, Post post, User author, Content content) {
         if(author == null){

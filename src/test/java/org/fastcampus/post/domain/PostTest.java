@@ -14,7 +14,7 @@ class PostTest {
     private final User user = new User(1l, info);
     private final User otherUser = new User(2L, info);
 
-    private final Post post = new Post(1L, user, new PostContent("content"));
+    private final Post post = Post.createDeaultStatePost(1L, user, new PostContent("content"));
 
     @Test
     void givenPostCreated_whenLike_thenLikeCountsShouldBe1(){
