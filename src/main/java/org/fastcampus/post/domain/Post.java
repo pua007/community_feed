@@ -34,6 +34,10 @@ public class Post {
         this.state = state;
     }
 
+    public User getAuthor() {
+        return author;
+    }
+
     public void like(User user){
         if(this.author.equals(user)){
             throw new IllegalArgumentException();
@@ -60,5 +64,13 @@ public class Post {
 
     public String getContent() {
         return content.getContentText();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Content getContentObject(){
+        return content;
     }
 }
