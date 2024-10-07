@@ -29,5 +29,21 @@ public class FakeObjectFactory {
 
     private FakeObjectFactory(){}
 
+    public static UserService getUserService(){
+        return userService;
+    }
+
+    public static UserRelationService getUserRelationService(){
+        return userRelationService;
+    }
+
+    public static PostService getPostService(){
+        return postService;
+    }
+
+    public static CommentService commentService(){
+        return commentService;
+    }
+
 }
 

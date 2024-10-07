@@ -2,6 +2,7 @@ package org.fastcampus.user.application;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.fastcampus.fake.FakeObjectFactory;
 import org.fastcampus.user.application.dto.CreateUserRequestDto;
 import org.fastcampus.user.application.interfaces.UserRepository;
 import org.fastcampus.user.domain.User;
@@ -11,8 +12,9 @@ import org.junit.jupiter.api.Test;
 
 class UserServiceTest {
 
-    private UserRepository userRepository = new FakeUserRepository();
-    private final UserService userService = new UserService(userRepository);
+//    private UserRepository userRepository = new FakeUserRepository();
+//    private final UserService userService = new UserService(userRepository);
+    private final UserService userService = FakeObjectFactory.getUserService();
 
     @Test
     void givenUserInfoDto_whenCreateUser_thenCanFindUser(){
