@@ -5,7 +5,10 @@ import org.fastcampus.user.application.dto.CreateUserRequestDto;
 import org.fastcampus.user.application.interfaces.UserRepository;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.domain.UserInfo;
+import org.springframework.stereotype.Service;
 
+//컨포넌트와 동일함
+@Service
 public class UserService {
     //다른 객체와 협업을하는 곳
 

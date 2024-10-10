@@ -1,15 +1,29 @@
 package org.fastcampus.user.domain;
 
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
+import org.springframework.data.annotation.Id;
 
 import java.util.Objects;
 
+@Getter
+@Builder
+@AllArgsConstructor
 public class User {
 
-    private final Long id;
-    private final UserInfo info;
-    private final PositiveIntegerCounter followingCount;
-    private final PositiveIntegerCounter followerCounter;
+    private Long id;
+
+    private UserInfo info;
+
+    private PositiveIntegerCounter followingCount;
+
+    private PositiveIntegerCounter followerCounter;
 
     public User(Long id, UserInfo userInfo) {
         if (userInfo == null) {
@@ -49,17 +63,7 @@ public class User {
         followerCounter.decrease();
     }
 
-    public UserInfo getInfo() {
-        return info;
-    }
 
-    public int  getFollowingCount() {
-        return followingCount.getCount();
-    }
-
-    public int  getFollowerCounter() {
-        return followerCounter.getCount();
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -76,8 +80,23 @@ public class User {
         return Objects.hashCode(id);
     }
 
-    public Long getId() {
-        return id;
+    public int  getFollowingCount() {
+
+        return followingCount.getCount();
     }
+
+    public int  getFollowerCounter() {
+
+        return followerCounter.getCount();
+    }
+
+    public String getProfileImage(){
+        return info.getProfileImageUrl();
+    }
+
+    public String getName(){
+        return info.getName();
+    }
+
 
 }

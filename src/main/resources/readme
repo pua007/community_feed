@@ -1,0 +1,10 @@
+유저와 게시글은 1대다 관계이다
+객체에서는 양방향으로
+
+select * from user where id=1;
+
+select * from post where user_id=1;
+
+
+many to one
+select * from post p join user u on p.user_id = u.id;
