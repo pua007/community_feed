@@ -3,7 +3,7 @@ package org.fastcampus.post.application;
 import org.fastcampus.post.appication.dto.LikeRequestDto;
 import org.fastcampus.post.appication.dto.UpdatePostRequestDto;
 import org.fastcampus.post.domain.Post;
-import org.fastcampus.post.domain.content.PostPublicationState;
+import org.fastcampus.post.domain.PostPublicationState;
 import org.junit.jupiter.api.Test;
 
 

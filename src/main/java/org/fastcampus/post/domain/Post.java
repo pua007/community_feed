@@ -6,7 +6,6 @@ import lombok.Getter;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.fastcampus.post.domain.content.Content;
 import org.fastcampus.post.domain.content.PostContent;
-import org.fastcampus.post.domain.content.PostPublicationState;
 import org.fastcampus.user.domain.User;
 
 

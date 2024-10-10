@@ -6,7 +6,7 @@ import org.fastcampus.post.appication.PostService;
 import org.fastcampus.post.appication.dto.CreateCommentRequestDto;
 import org.fastcampus.post.appication.dto.CreatePostRequestDto;
 import org.fastcampus.post.domain.Post;
-import org.fastcampus.post.domain.content.PostPublicationState;
+import org.fastcampus.post.domain.PostPublicationState;
 import org.fastcampus.user.application.UserService;
 import org.fastcampus.user.application.dto.CreateUserRequestDto;
 import org.fastcampus.user.domain.User;

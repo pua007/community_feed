@@ -1,7 +1,7 @@
-package org.fastcampus.post.repository.entity;
+package org.fastcampus.post.repository.entity.post;
 
 import jakarta.persistence.AttributeConverter;
-import org.fastcampus.post.domain.content.PostPublicationState;
+import org.fastcampus.post.domain.PostPublicationState;
 
 public class PostPublicationStateConverter implements AttributeConverter<PostPublicationState, String> {
 

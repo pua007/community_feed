@@ -1,6 +1,8 @@
 package org.fastcampus.post.domain.comment;
 
 import com.sun.source.tree.IfTree;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.fastcampus.post.domain.Post;
 import org.fastcampus.post.domain.content.CommentContent;
@@ -8,6 +10,8 @@ import org.fastcampus.post.domain.content.Content;
 import org.fastcampus.post.domain.content.PostContent;
 import org.fastcampus.user.domain.User;
 
+@Builder
+@AllArgsConstructor
 public class Comment {
 
     private final Long id;

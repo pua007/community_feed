@@ -6,11 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.fastcampus.common.repository.entity.TimeBaseEntity;
-import org.fastcampus.post.repository.entity.PostEntity;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.domain.UserInfo;
-
-import java.util.List;
 
 @Entity
 @Table(name = "community_user")

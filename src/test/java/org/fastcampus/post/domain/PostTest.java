@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.fastcampus.post.domain.content.PostContent;
-import org.fastcampus.post.domain.content.PostPublicationState;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.domain.UserInfo;
 import org.junit.jupiter.api.Test;
