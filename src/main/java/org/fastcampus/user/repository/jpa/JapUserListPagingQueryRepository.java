@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class JapUserListPagingQueryRepository {
 
-    public final JPAQueryFactory jpaQueryFactory;
+    private final JPAQueryFactory jpaQueryFactory;
     private static final QUserEntity user = QUserEntity.userEntity;
     private static final QUserRelationEntity relation = QUserRelationEntity.userRelationEntity;
 
@@ -31,7 +31,7 @@ public class JapUserListPagingQueryRepository {
                 .join(user).on(relation.followingUserId.eq(user.id))
                 .where(
                         relation.followerUserId.eq(userId),
-                                hasLastData(lastFollowerId)
+                        hasLastData(lastFollowerId)
                 )
                 .orderBy(user.id.desc())
                 .limit(20)
