@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 public class TimeBaseEntity {
     @CreatedDate
-    @Column(updatable = false)
+    @Column(updatable = false) //읽기전용 칼럼
     private LocalDateTime regDt;
 
     @LastModifiedDate
