@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public User createUser(CreateUserRequestDto dto){
-        UserInfo info = new UserInfo(dto.name(), dto.profileImageUrsl());
+        UserInfo info = new UserInfo(dto.name(), dto.profileImageUrl());
         User user = new User(null, info);
         return userRepository.save(user);
     }

@@ -19,6 +19,10 @@ public class User {
 
     private Long id;
 
+    private String name;
+
+    private String profileImageUrl;
+
     private UserInfo info;
 
     private PositiveIntegerCounter followingCount;
@@ -32,6 +36,8 @@ public class User {
 
         this.id = id;
         this.info = userInfo;
+        this.name = userInfo.getName();
+        this.profileImageUrl = userInfo.getProfileImageUrl();
         this.followingCount = new PositiveIntegerCounter();
         this.followerCounter = new PositiveIntegerCounter();
 
