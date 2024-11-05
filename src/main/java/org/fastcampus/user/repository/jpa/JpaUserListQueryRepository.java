@@ -20,6 +20,6 @@ public interface JpaUserListQueryRepository extends JpaRepository<UserEntity, Lo
     @Query(value = "SELECT new org.fastcampus.user.application.dto.GetUserListResponseDto(u.name, u.profileImage)"
             +" FROM UserRelationEntity ur"
             +" INNER JOIN UserEntity u ON ur.followingUserId = u.id"
-            +" WHERE ur.followerUserId = :userId" , nativeQuery = true)
+            +" WHERE ur.followerUserId = :userId")
     List<GetUserListResponseDto>getFollowerUserList(Long userId);
 }
