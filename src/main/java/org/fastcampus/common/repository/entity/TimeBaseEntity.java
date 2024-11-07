@@ -19,5 +19,5 @@ public class TimeBaseEntity {
     private LocalDateTime regDt;
 
     @LastModifiedDate
-    private LocalDateTime updDt;
+    private LocalDateTime upDt;
 }

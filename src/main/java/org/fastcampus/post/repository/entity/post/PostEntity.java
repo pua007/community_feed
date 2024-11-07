@@ -21,7 +21,7 @@ public class PostEntity extends TimeBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="author_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
@@ -35,7 +35,7 @@ public class PostEntity extends TimeBaseEntity {
     private Integer likeCount;
 
     public PostEntity(Post post){
-        this.Id = post.getId();
+        this.id = post.getId();
         this.author = new UserEntity(post.getAuthor());
         this.content = post.getContent();
         this.state = post.getState();
@@ -44,7 +44,7 @@ public class PostEntity extends TimeBaseEntity {
 
     public Post toPost(){
         return Post.builder()
-                .id(Id)
+                .id(id)
                 .author(author.toUser())
                 .content(new PostContent(content))
                 .state(state)
