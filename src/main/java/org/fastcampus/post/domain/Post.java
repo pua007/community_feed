@@ -14,7 +14,7 @@ import org.fastcampus.user.domain.User;
 @Getter
 public class Post {
 
-    private final long id;
+    private final Long id;
     private final User author;
     private final Content content;
     private final PositiveIntegerCounter likeCount;
@@ -33,7 +33,7 @@ public class Post {
             throw new IllegalArgumentException();
         }
 
-        this.id = id;
+        this.id =id;
         this.author = author;
         this.content = content;
         this.likeCount = new PositiveIntegerCounter();
