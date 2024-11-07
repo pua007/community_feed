@@ -19,5 +19,6 @@ public class TimeBaseEntity {
     private LocalDateTime regDt;
 
     @LastModifiedDate
+    @Column(name = "upd_dt")
     private LocalDateTime updDt;
 }
