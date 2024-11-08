@@ -18,9 +18,7 @@ public class PostController {
 
     @PostMapping
     public Response<Long> createPost(@RequestBody CreatePostRequestDto dto){
-        System.out.println("3");
         Post post = postService.createPost(dto);
-        System.out.println("4");
         return Response.ok(post.getId());
     }
 

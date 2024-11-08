@@ -33,11 +33,8 @@ public class PostService {
 
     public Post createPost(CreatePostRequestDto dto){
         System.out.println(postRepository.getClass().getName());
-        System.out.println("5");
         User author = userService.getUser(dto.userId());
-        System.out.println("6");
         Post post = Post.createPost(null, author, dto.content(), dto.state());
-        System.out.println("7");
         return postRepository.save(post);
     }
 

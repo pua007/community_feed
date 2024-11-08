@@ -8,3 +8,13 @@ select * from post where user_id=1;
 
 many to one
 select * from post p join user u on p.user_id = u.id;
+
+1 -> 2
+1 -> 3
+
+2번의 게시글 postId -> 1
+3번의 게시글 postId -> 2
+
+userId // postId // authorId
+1      // 1      // 2
+1      // 2      // 3

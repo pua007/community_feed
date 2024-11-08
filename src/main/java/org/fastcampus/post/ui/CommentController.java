@@ -22,8 +22,8 @@ public class CommentController {
         return Response.ok(comment.getId());
     }
 
-    @PostMapping("/{commnetId}")
-    public Response<Long> updateCommnet(@PathVariable(name="commnetId")Long commentId, @RequestBody UpdateCommentRequestDto dto){
+    @PostMapping("/{commentId}")
+    public Response<Long> updateCommnet(@PathVariable(name="commentId")Long commentId, @RequestBody UpdateCommentRequestDto dto){
         Comment comment = commentService.updateComment(commentId, dto);
         return Response.ok(comment.getId());
     }
@@ -34,7 +34,7 @@ public class CommentController {
         return Response.ok(null);
     }
 
-    @PostMapping("/uplike")
+    @PostMapping("/unlike")
     public Response<Void> unlikeCount(@RequestBody LikeRequestDto dto){
         commentService.unlikeComment(dto);
         return Response.ok(null);

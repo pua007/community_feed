@@ -5,6 +5,7 @@ import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.fastcampus.post.repository.post_queue.UserPostQueueCommandRepository;
 import org.fastcampus.user.application.interfaces.UserRelationRepository;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.repository.entity.UserEntity;
@@ -20,6 +21,7 @@ public class UserRelationRepositoryImpl implements UserRelationRepository {
 
     private final JpaUserRelationRepository jpaUserRelationRepository;
     private final JpaUserRepository jpaUserRepository;
+    private final UserPostQueueCommandRepository commandRepository;
 
 
     @Override
@@ -44,6 +46,7 @@ public class UserRelationRepositoryImpl implements UserRelationRepository {
 //        List<UserEntity> list = new ArrayList<>();
 //        list.add(new UserEntity(user));
 //        list.add(new UserEntity(targetUser)); 이런식으로 코드가 길어진다 여기서 saveAll(list);를 해도 상관은 없다
+        commandRepository.saveFollowPost(user.getId(), targetUser.getId());
     }
 
     @Override
@@ -52,5 +55,6 @@ public class UserRelationRepositoryImpl implements UserRelationRepository {
         UserRelationIdEntity id = new UserRelationIdEntity(user.getId(), targetUser.getId());
         jpaUserRelationRepository.deleteById(id);
         jpaUserRepository.saveAll(List.of(new UserEntity(user), new UserEntity(targetUser)));
+        commandRepository.deleteUnfollowPost(user.getId(),targetUser.getId());
     }
 }
