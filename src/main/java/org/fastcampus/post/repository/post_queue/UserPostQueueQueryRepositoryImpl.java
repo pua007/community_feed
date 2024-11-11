@@ -8,8 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.fastcampus.post.repository.entity.like.QLikeEntity;
 import org.fastcampus.post.repository.entity.post.QPostEntity;
 import org.fastcampus.post.repository.entity.post.QUserPostQueueEntity;
-import org.fastcampus.post.repository.entity.post.UserPostQueueEntity;
-import org.fastcampus.post.ui.dto.GetpostContentResponseDto;
+import org.fastcampus.post.ui.dto.GetPostContentResponseDto;
 import org.fastcampus.user.repository.entity.QUserEntity;
 import org.springframework.stereotype.Repository;
 
@@ -24,11 +23,11 @@ public class UserPostQueueQueryRepositoryImpl implements UserPostQueueQueryRepos
 
 
     @Override
-    public List<GetpostContentResponseDto> getContentResponse(Long userId, Long lastContentId) {
+    public List<GetPostContentResponseDto> getContentResponse(Long userId, Long lastContentId) {
         return queryFactory
             .select(
-                Projections.fields(
-                    GetpostContentResponseDto.class,
+                Projections.fields(//DTO에 매핑하는 방식
+                    GetPostContentResponseDto.class,
                     postEntity.id.as("id"),
                     postEntity.content.as("content"),
                     userEntity.id.as("userId"),
@@ -41,9 +40,9 @@ public class UserPostQueueQueryRepositoryImpl implements UserPostQueueQueryRepos
                     likeEntity.isNotNull().as("isLikedByMe")
                 )
             )
-            .from(userPostQueueEntity)
-            .join(postEntity).on(userPostQueueEntity.postId.eq(postEntity.id))
-            .join(userEntity).on(userPostQueueEntity.authorId.eq(userEntity.id))
+            .from(userPostQueueEntity)//유저포스트 큐테이블을 기준으로
+            .join(postEntity).on(userPostQueueEntity.postId.eq(postEntity.id))//포스트테이블의 아이디 값과 유저포스트큐테이블이 가지고 있는 포스트아이디값을 통해 조인
+            .join(userEntity).on(userPostQueueEntity.authorId.eq(userEntity.id))//유저테이블의 아이디 값과 유저 포스트 큐테이블이 가고 있는 유저유저 아이디값을 통해 조인
             .leftJoin(likeEntity).on(hasLike(userId))//내가이 게시글에 좋아요를 눌렀는지 않눌렀는지 조회를 하고있음
             .where(
                 userPostQueueEntity.userId.eq(userId),

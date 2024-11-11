@@ -11,6 +11,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetpostContentResponseDto extends GetContentResponseDto {
+public class GetPostContentResponseDto extends GetContentResponseDto {
     private Integer commentCount;
 }

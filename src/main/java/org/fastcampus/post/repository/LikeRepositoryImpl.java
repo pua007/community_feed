@@ -40,7 +40,7 @@ public class LikeRepositoryImpl implements LikeRepository {
         //jpaLikeRepository.save(likeEntity);
         //persist 불필요한 조회 없이 바로 저장이 된다.
         entityManager.persist(likeEntity);
-        jpaPostRepository.updateLikeCount(new PostEntity(post));
+        jpaPostRepository.updateLikeCount(post.getId(), 1);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class LikeRepositoryImpl implements LikeRepository {
     public void unlike(Post post, User user) {
         LikeEntity likeEntity = new LikeEntity(post, user);
         jpaLikeRepository.deleteById(likeEntity.getId());
-        jpaPostRepository.updateLikeCount(new PostEntity(post));
+        jpaPostRepository.updateLikeCount(post.getId(), -1);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class LikeRepositoryImpl implements LikeRepository {
         LikeEntity likeEntity = new LikeEntity(comment, user);
         //jpaLikeRepository.save(likeEntity);
         entityManager.persist(likeEntity);
-        jpaCommentRepository.updateLikeCount(new CommentEntity(comment));
+        jpaCommentRepository.updateLikeCount(comment.getId(), 1);
 
     }
 
@@ -72,6 +72,6 @@ public class LikeRepositoryImpl implements LikeRepository {
     public void unlike(Comment comment, User user) {
         LikeEntity likeEntity = new LikeEntity(comment, user);
         jpaLikeRepository.deleteById(likeEntity.getId());
-        jpaCommentRepository.updateLikeCount(new CommentEntity(comment));
+        jpaCommentRepository.updateLikeCount(comment.getId(), -1);
     }
 }
